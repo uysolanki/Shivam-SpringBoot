@@ -1,15 +1,20 @@
 package com.itp.sms.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.itp.sms.model.Player;
 
 @RestController
 public class MyController {
 
-	@RequestMapping("/virat")
+	
+	@RequestMapping(value={"/virat","/rcb","/ipl"})
 	public String test()
 	{
 		return "virat";
 	}
+	
+	
+	
 }
