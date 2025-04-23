@@ -1,15 +1,13 @@
 package com.itp.sms.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.itp.sms.model.Player;
 
 @RestController
 public class MyController {
 
 	
-	@RequestMapping(value={"/virat","/rcb","/ipl"})
+	@GetMapping(value={"/virat","/rcb","/ipl"})
 	public String test()
 	{
 		return "virat";
