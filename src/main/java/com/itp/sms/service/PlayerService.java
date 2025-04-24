@@ -34,4 +34,9 @@ public class PlayerService {
 		return playerRepository.findAll();
 	}
 
+	public List<Player> getPlayersShivamGreaterThan(int runs) 
+	{
+		return playerRepository.findByRsGreaterThanEqual(runs);
+	}
+
 }

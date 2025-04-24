@@ -134,6 +134,13 @@ public class PlayerController {
 		List<Player> players=playerService.getAllPlayers();
 		return new ResponseEntity<List<Player>>(players,HttpStatus.OK);
 	}
+	
+	@GetMapping("/getPlayersGreaterThan/{runs}") //10000
+	public ResponseEntity<List<Player>> getPlayersGreaterThan(@PathVariable int runs)
+	{
+		List<Player> players=playerService.getPlayersShivamGreaterThan(runs);
+		return new ResponseEntity<List<Player>>(players,HttpStatus.OK);
+	}
 
 }
 
