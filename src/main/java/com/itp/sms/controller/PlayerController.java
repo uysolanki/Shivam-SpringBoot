@@ -1,9 +1,11 @@
 package com.itp.sms.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -109,6 +111,28 @@ public class PlayerController {
 	public ResponseEntity<Player> addplayerbyrequestbody(@RequestBody Player p)
 	{
 		return new ResponseEntity<Player>(playerService.addPlayer(p),HttpStatus.CREATED);
+	}
+	
+	
+	@GetMapping("/getPlayerByRequestParam")
+	public ResponseEntity<Player> getPlayerByRequestParam(@RequestParam("pno") int jno)
+	{
+		Player player=playerService.getPlayer(jno);
+		return new ResponseEntity<Player>(player,HttpStatus.OK);
+	}
+	
+	@GetMapping("/getPlayerByPathVariable/{jno}")
+	public ResponseEntity<Player> getPlayerByPathVariable(@PathVariable int jno)
+	{
+		Player player=playerService.getPlayer(jno);
+		return new ResponseEntity<Player>(player,HttpStatus.OK);
+	}
+	
+	@GetMapping("/getAllPlayers")
+	public ResponseEntity<List<Player>> getAllPlayers()
+	{
+		List<Player> players=playerService.getAllPlayers();
+		return new ResponseEntity<List<Player>>(players,HttpStatus.OK);
 	}
 
 }
