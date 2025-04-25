@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.itp.sms.exeption.PlayerNotFoundException;
+import com.itp.sms.exception.PlayerNotFoundException;
 import com.itp.sms.model.Player;
 import com.itp.sms.repository.PlayerRepository;
 
@@ -21,15 +21,6 @@ public class PlayerService {
 		
 	}
 
-	public Player getPlayer(int jno) {
-		Optional<Player> player=playerRepository.findById(jno);
-		if(player.isPresent())
-			return player.get();
-		else
-			throw new PlayerNotFoundException("Player does not exist");
-					
-	}
-
 	public List<Player> getAllPlayers() {
 		return playerRepository.findAll();
 	}
@@ -37,6 +28,14 @@ public class PlayerService {
 	public List<Player> getPlayersShivamGreaterThan(int runs) 
 	{
 		return playerRepository.findByRsGreaterThanEqual(runs);
+	}
+
+	public Player getPlayer(int jerseyno) {
+		Optional<Player> player=playerRepository.findById(jerseyno);
+		if(player.isPresent())
+			return player.get();
+		else
+			throw new PlayerNotFoundException("Player with Jersey No " + jerseyno + " Does not Exist");
 	}
 
 }
