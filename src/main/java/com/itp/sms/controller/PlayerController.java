@@ -142,13 +142,32 @@ public class PlayerController {
 		return new ResponseEntity<List<Player>>(players,HttpStatus.OK);
 	}
 
+	@GetMapping("/getPlayerByName/{pname}") //10000
+	public ResponseEntity<List<Player>> getPlayerByName(@PathVariable String pname)
+	{
+		List<Player> players=playerService.getPlayerByName(pname);
+		return new ResponseEntity<List<Player>>(players,HttpStatus.OK);
+	}
+
 }
 
 /*
+ 
+Option A
 {
-"jno": 8,
-"pname": "Jasprit",
-"mp": 5,
-"rs": 70
+"jno": 9,
+"pname": "Dhoni",
+"mp": 300,
+"rs": 15000
 }
+
+Option B
+[
+	{
+	"jno": 9,
+	"pname": "Dhoni",
+	"mp": 300,
+	"rs": 15000
+	}
+]
 */

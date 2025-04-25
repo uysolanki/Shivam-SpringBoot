@@ -12,4 +12,6 @@ import com.itp.sms.model.Player;
 public interface PlayerRepository extends JpaRepository<Player, Integer>
 {
 	public List<Player> findByRsGreaterThanEqual(int x);
+
+	public List<Player> findByPnameContaining(String playerName);
 }

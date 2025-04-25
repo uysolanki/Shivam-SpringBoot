@@ -39,4 +39,7 @@ public class PlayerService {
 		return playerRepository.findByRsGreaterThanEqual(runs);
 	}
 
+	public List<Player> getPlayerByName(String pname) {
+		return playerRepository.findByPnameContaining(pname);
+	}
 }
