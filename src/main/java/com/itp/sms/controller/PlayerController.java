@@ -114,19 +114,19 @@ public class PlayerController {
 	}
 	
 	
-	@GetMapping("/getPlayerByRequestParam")
-	public ResponseEntity<Player> getPlayerByRequestParam(@RequestParam("pno") int jno)
-	{
-		Player player=playerService.getPlayer(jno);
-		return new ResponseEntity<Player>(player,HttpStatus.OK);
-	}
-	
-	@GetMapping("/getPlayerByPathVariable/{jno}")
-	public ResponseEntity<Player> getPlayerByPathVariable(@PathVariable int jno)
-	{
-		Player player=playerService.getPlayer(jno);
-		return new ResponseEntity<Player>(player,HttpStatus.OK);
-	}
+//	@GetMapping("/getPlayerByRequestParam")
+//	public ResponseEntity<Player> getPlayerByRequestParam(@RequestParam("pno") int jno)
+//	{
+//		Player player=playerService.getPlayer(jno);
+//		return new ResponseEntity<Player>(player,HttpStatus.OK);
+//	}
+//
+//	@GetMapping("/getPlayerByPathVariable/{jno}")
+//	public ResponseEntity<Player> getPlayerByPathVariable(@PathVariable int jno)
+//	{
+//		Player player=playerService.getPlayer(jno);
+//		return new ResponseEntity<Player>(player,HttpStatus.OK);
+//	}
 	
 	@GetMapping("/getAllPlayers")
 	public ResponseEntity<List<Player>> getAllPlayers()
@@ -152,7 +152,7 @@ public class PlayerController {
 }
 
 /*
- 
+
 Option A
 {
 "jno": 9,
