@@ -149,6 +149,13 @@ public class PlayerController {
 		return new ResponseEntity<List<Player>>(players,HttpStatus.OK);
 	}
 
+	@GetMapping("/getPlayer/{jerseyNo}") //10000
+	public ResponseEntity<Player> getPlayer(@PathVariable int jerseyNo)
+	{
+		Player player=playerService.getPlayer(jerseyNo);
+		return new ResponseEntity<Player>(player,HttpStatus.OK);
+	}
+
 }
 
 /*
