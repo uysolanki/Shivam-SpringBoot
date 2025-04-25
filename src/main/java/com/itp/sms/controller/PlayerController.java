@@ -142,6 +142,11 @@ public class PlayerController {
 		return new ResponseEntity<List<Player>>(players,HttpStatus.OK);
 	}
 
+	@GetMapping("/getPlayerByName/{pname}")
+	public String getPlayerByName(@PathVariable String pname)
+	{
+		return "Bunty";
+	}
 }
 
 /*
