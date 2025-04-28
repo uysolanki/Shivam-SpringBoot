@@ -41,4 +41,17 @@ public class PlayerService {
 			throw new PlayerNotFoundException("Player with Jersey No " + jerseyno + " Does not Exist");
 	}
 
+	public Player updatePlayer(int jerseyNo, Player newDetails) {
+		
+		Player playerDB=getPlayer(jerseyNo);
+		playerDB.setMp(newDetails.getMp());
+		playerDB.setRs(newDetails.getRs());
+		playerDB.setPname(newDetails.getPname());
+		return playerRepository.save(playerDB);
+	}
+
+	public void deletePlayer(int jerseyNo) {
+		playerRepository.deleteById(jerseyNo);
+	}
+
 }
