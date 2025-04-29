@@ -1,6 +1,6 @@
 package com.itp.sms.exception;
-
-import java.time.LocalDateTime;
+//
+//import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.itp.sms.response.ErrorResponse;
 
-@ControllerAdvice
-public class GlobalExceptionHandler {
+//@ControllerAdvice
+//public class GlobalExceptionHandler {
 
 //@ExceptionHandler(PlayerNotFoundException.class)
 //public ResponseEntity<String> handlePlayerNotFound(PlayerNotFoundException ex)
@@ -32,12 +32,12 @@ public class GlobalExceptionHandler {
 //
 //}
 
-@ExceptionHandler(PlayerNotFoundException.class)
-public ResponseEntity<ErrorResponse> handlePlayerNotFound(PlayerNotFoundException ex)
-{
-		ErrorResponse error=new ErrorResponse("Player Not Found",ex.getMessage(),LocalDateTime.now(),HttpStatus.NOT_FOUND.value());
-		return new ResponseEntity<ErrorResponse>(error,HttpStatus.NOT_FOUND);
-
-}
-
-}
+//@ExceptionHandler(PlayerNotFoundException.class)
+//public ResponseEntity<ErrorResponse> handlePlayerNotFound(PlayerNotFoundException ex)
+//{
+//		ErrorResponse error=new ErrorResponse("Player Not Found",ex.getMessage(),LocalDateTime.now(),HttpStatus.NOT_FOUND.value());
+//		return new ResponseEntity<ErrorResponse>(error,HttpStatus.NOT_FOUND);
+//
+//}
+//
+//}
