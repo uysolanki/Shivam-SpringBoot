@@ -1,8 +1,11 @@
 package com.itp.sms.model;
 
 
+import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,6 +17,10 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,6 +29,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@EntityListeners(AuditingEntityListener.class)
 public class Employee {
 
 	@Id
@@ -53,4 +61,14 @@ public class Employee {
 	@Min(value = 10000, message = "Salary must be at least 10,000") 
 	@Max(value = 50000, message = "Salary must be less than or equal to 50,000") 
 	private Integer salary;
+	
+	
+	@CreatedDate 
+	@Column(name = "created_at") 
+	private Timestamp createdAt; 
+
+	@LastModifiedDate 
+	@Column(name = "modified_at") 
+	private Timestamp modifiedAt;
+
 }
