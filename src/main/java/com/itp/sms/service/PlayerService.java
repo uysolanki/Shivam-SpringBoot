@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.itp.sms.exception.PlayerNotFoundException;
@@ -52,6 +54,14 @@ public class PlayerService {
 
 	public void deletePlayer(int jerseyNo) {
 		playerRepository.deleteById(jerseyNo);
+	}
+
+	public List<Player> addMultiplePlayer(List<Player> players) {
+		return playerRepository.saveAll(players);
+	}
+
+	public Page<Player> getAllPlayersByPagination(int pageNo, int pageSize) {
+		return playerRepository.findAll(PageRequest.of(pageNo, pageSize));
 	}
 
 }

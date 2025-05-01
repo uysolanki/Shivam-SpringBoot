@@ -3,6 +3,7 @@ package com.itp.sms.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -116,6 +117,13 @@ public class PlayerController {
 	}
 	
 	
+	@PostMapping("/addmultipleplayersbyrequestbody")
+	public ResponseEntity<List<Player>> addmultipleplayersbyrequestbody(@RequestBody List<Player> players)
+	{
+		return new ResponseEntity<List<Player>>(playerService.addMultiplePlayer(players),HttpStatus.CREATED);
+	}
+	
+	
 //	@GetMapping("/getPlayerByRequestParam")
 //	public ResponseEntity<Player> getPlayerByRequestParam(@RequestParam("pno") int jno)
 //	{
@@ -135,6 +143,13 @@ public class PlayerController {
 	{
 		List<Player> players=playerService.getAllPlayers();
 		return new ResponseEntity<List<Player>>(players,HttpStatus.OK);
+	}
+	
+	@GetMapping("/getAllPlayersByPagination/{pageNo}/{pageSize}")
+	public ResponseEntity<Page<Player>> getAllPlayersByPagination(@PathVariable int pageNo,@PathVariable int pageSize )
+	{
+		Page<Player> players=playerService.getAllPlayersByPagination(pageNo,pageSize);
+		return new ResponseEntity<Page<Player>>(players,HttpStatus.OK);
 	}
 	
 	@GetMapping("/getPlayersGreaterThan/{runs}") //10000
