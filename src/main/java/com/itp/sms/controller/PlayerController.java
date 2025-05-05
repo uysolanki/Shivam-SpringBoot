@@ -2,6 +2,7 @@ package com.itp.sms.controller;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,8 @@ public class PlayerController {
 	
 	@Autowired
 	PlayerService playerService;
+	
+	private static final Logger logger=Logger.getLogger(PlayerController.class);
 	
 	@RequestMapping("/addplayer")
 	public void addPlayer()
@@ -113,6 +116,7 @@ public class PlayerController {
 	@PostMapping("/addplayerbyrequestbody")
 	public ResponseEntity<Player> addplayerbyrequestbody(@RequestBody Player p)
 	{
+		logger.info("Request recieved to add Player " +p.getPname());
 		return new ResponseEntity<Player>(playerService.addPlayer(p),HttpStatus.CREATED);
 	}
 	
