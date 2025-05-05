@@ -152,6 +152,13 @@ public class PlayerController {
 		return new ResponseEntity<Page<Player>>(players,HttpStatus.OK);
 	}
 	
+	@GetMapping("/getAllPlayersByPaginationAndSorting/{pageNo}/{pageSize}/{fieldName}")
+	public ResponseEntity<Page<Player>> getAllPlayersByPaginationAndSorting(@PathVariable int pageNo,@PathVariable int pageSize,@PathVariable String fieldName)
+	{
+		Page<Player> players=playerService.getAllPlayersByPaginationAndSorting(pageNo,pageSize,fieldName);
+		return new ResponseEntity<Page<Player>>(players,HttpStatus.OK);
+	}
+	
 	@GetMapping("/getPlayersGreaterThan/{runs}") //10000
 	public ResponseEntity<List<Player>> getPlayersGreaterThan(@PathVariable int runs)
 	{
