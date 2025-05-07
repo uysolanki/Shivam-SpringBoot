@@ -66,8 +66,21 @@ public class PlayerControllerFE {
 	}
 	
 	
+	@RequestMapping("/updatePlayerForm/{jerseyNo}")
+	public String updatePlayerForm(@PathVariable int jerseyNo,Model model)
+	{
+		Player player=playerService.getPlayer(jerseyNo);
+		model.addAttribute("player",player);
+		return "updatePlayerForm";
+	}
 	
 	
+	@PostMapping("/updatePlayer/{jerseyNo}") //10000
+	public String updatePlayer(@PathVariable int jerseyNo, @ModelAttribute Player newDetails)
+	{
+		Player player=playerService.updatePlayer(jerseyNo,newDetails);
+		return "redirect:/home";
+	}
 	
 	
 	
@@ -241,12 +254,12 @@ public class PlayerControllerFE {
 		return new ResponseEntity<Player>(player,HttpStatus.OK);
 	}
 	
-	@PutMapping("/updatePlayer/{jerseyNo}") //10000
-	public ResponseEntity<Player> updatePlayer(@PathVariable int jerseyNo, @RequestBody Player newDetails)
-	{
-		Player player=playerService.updatePlayer(jerseyNo,newDetails);
-		return new ResponseEntity<Player>(player,HttpStatus.OK);
-	}
+//	@PutMapping("/updatePlayer/{jerseyNo}") //10000
+//	public ResponseEntity<Player> updatePlayer(@PathVariable int jerseyNo, @RequestBody Player newDetails)
+//	{
+//		Player player=playerService.updatePlayer(jerseyNo,newDetails);
+//		return new ResponseEntity<Player>(player,HttpStatus.OK);
+//	}
 	
 	
 }
