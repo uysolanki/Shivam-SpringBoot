@@ -22,7 +22,6 @@ import com.itp.sms.service.EmployeeService;
 import com.itp.sms.util.APIError;
 
 
-
 @RestController
 public class EmployeeController {
 	

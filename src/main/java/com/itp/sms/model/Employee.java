@@ -63,12 +63,12 @@ public class Employee {
 	private Integer salary;
 	
 	
-	@CreatedDate 
-	@Column(name = "created_at") 
-	private Timestamp createdAt; 
-
-	@LastModifiedDate 
-	@Column(name = "modified_at") 
-	private Timestamp modifiedAt;
+//	@CreatedDate 
+//	@Column(name = "created_at") 
+//	private Timestamp createdAt; 
+//
+//	@LastModifiedDate 
+//	@Column(name = "modified_at") 
+//	private Timestamp modifiedAt;
 
 }
